@@ -41,7 +41,7 @@ console.log(a < 0 && "yes" || "no");
 
 var a = 5;
 var b = 20;
-console.log(b % a === 0 && "1" || "0");
+console.log(!(a % b && b % a) && 1 || 0);
 
 
 // 5. Given three numbers. Find the maximum one
