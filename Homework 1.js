@@ -41,7 +41,7 @@ console.log(a < 0 && "yes" || "no");
 
 var a = 5;
 var b = 20;
-console.log(b % a === 0 && "1" || "0");
+console.log(!(a % b && b % a) && 1 || 0);
 
 
 // 5. Given three numbers. Find the maximum one
@@ -49,7 +49,7 @@ console.log(b % a === 0 && "1" || "0");
 var a = 4;
 var b = 2;
 var c = 7;
-console.log((a > b && a > c && a) || (b > c && b) || c);
+console.log((a > b && a > c && `${a}` || (b > c && `${b}`) || `${c});
 
 
 // 6. Given string ‘test’. Use variables and string methods and print ‘tetsetesesesesteest’
