@@ -94,29 +94,152 @@ function reverse(number) {
     let answer = `${last}${remain}${first}`;
         return answer;
   }
-  console.log(reverse(4569753));
+  console.log(reverse(2));
+  console.log(reverse(13));
+  console.log(reverse(895796));
 
 
 4. Enter a number. Find the difference between its biggest and smallest digits.
 
+function minmax (a) {
+    let num = a;
+    let large = 0;
+    let small = 10;
+    let digit;
+    
+    if(num == 0) {
+        small = 0;
+    }   else {
+            while(num > 0) {
+                digit = num % 10;
+                num = num - digit;
+                
+                if (digit > large) {
+                    large = digit;
+                } else if (digit < small) {
+                    small = digit;
+                } else if (digit == 0) {
+                    small = 0;
+                }
+                num /= 10;
+            }
+        }
+    let difference = large - small;
+    return difference;
+}
+console.log(minmax(5));
+console.log(minmax(152));
+console.log(minmax(4593653));
 
-5. Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
+//5. Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
+
+function isPrime(num) {
+    for (var i = 2; i < num; i++)
+      if (num % i === 0) return "no";
+          return "yes";
+}
+console.log(isPrime(401));
+console.log(isPrime(63));
 
 
-6. Given a number n ( n > 0 ). Print Fibonacci series up to n.
+//6. Given a number n ( n > 0 ). Print Fibonacci series up to n.
+
+function fibonacci (n) {
+    let result = "0, 1";
+    let a = 0, b = 1, sum = 0;
+    
+    for(let i = 2; i <= n; i++) {
+      sum = a + b;
+      if (sum < n) { 
+        result += ', ' + sum;
+      }
+      a = b;
+      b = sum;
+    }
+     return result;
+    }
+    console.log(fibonacci(7));
+    console.log(fibonacci(45));
 
 
 
-7. Write a recursive function to determine whether all digits of the number are odd or not.
+//7. Write a recursive function to determine whether all digits of the number are odd or not.
+
+function isOdd(num) {
+    if (num === 0) {
+      return false;
+    } else if (num > 0 && num <= 9) {
+      if (num % 2 === 1) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+        var digit = num % 10;
+        if (digit % 2 === 1) {
+          return isOdd((num - digit) / 10);
+        } else {
+          return false;
+        }
+    }
+  }
+  console.log(isOdd(4211133));
+  console.log(isOdd(7791));
+  console.log(isOdd(5));
 
 
 
-8. Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).
+/*8. Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ 
+If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).*/
+
+function longestWord(string) {
+    let str = string. split(" ");
+    let longest = 0;
+    let word;
+    str.forEach(function(str) {
+        if (longest < str.length) {
+            longest = str.length;
+            word = str;
+        }
+    });
+    return word;
+}
+console.log(longestWord("A revolution without dancing is a revolution not worth having."));
+console.log(longestWord("Which would be worse - to live as a monster, or to die as a good man?"));
+
+/*9. Write a function to find longest substring in a given a string without repeating characters except space character. 
+If there are several, return the last one. Consider that all letters are lowercase.*/
+
+function substring(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str.includes(str[i])) {
+            str.slice(i, 1);
+        }
+         return str;
+    }      
+}
+console.log(substring("there are no two words in the english language more harmful than 'good job'."));
+console.log(substring("parting your soup is not a miracle, bruce."));
 
 
-9. Write a function to find longest substring in a given a string without repeating characters except space character. 
-If there are several, return the last one. Consider that all letters are lowercase.
 
+/*10. Write a function, which receives two numbers as arguments and finds all numbers between them such 
+that each digit of the number is even. The numbers obtained should be printed in a comma-separated sequence on a single line.*/
 
+function isEven (num1, num2) {
+    for (let i = num1; i <= num2; i++) {
+        var num = i;
+        digit = num % 10;
+        num = (num - digit) / 10;
+        if (digit % 2 === 0) {
+            return num;
+        } else {
+            return "Such numbers does not exist.";
+        }
+    }
+}
+console.log(isEven(19, 42));
+console.log(isEven(99, 199));
 
-10. Write a function, which receives two numbers as arguments and finds all numbers between them such that each digit of the number is even. The numbers obtained should be printed in a comma-separated sequence on a single line.
+// I know that 9 and 10 are incorrect, I write what I could.
+
