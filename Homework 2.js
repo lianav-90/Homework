@@ -63,6 +63,9 @@
 //2. Insert a digit and a number. Check whether the digits contains in the number or not.(don`t use string)
 
 function check (digit, number) {
+    if (number === digit) {
+        return "Yes";
+    }
     while (number > 0) {
       if (number % 10 === digit) {
         return "Yes";
@@ -193,7 +196,7 @@ function isOdd(num) {
 If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).*/
 
 function longestWord(string) {
-    let str = string. split(" ");
+    let str = string.split(" ");
     let longest = 0;
     let word;
     str.forEach(function(str) {
