@@ -122,6 +122,23 @@ a.b.a = 123;
 console.log(b.b.a !== 123);
 
 
+function deepCopy(obj) {
+  const newObj = {};
+  const keys = Object.keys(obj);
+  for (const key of keys) {
+    const val = obj[key];
+  }
+  if (typeof val === 'object' && val) {
+    newObj[key] = deepCopy(val);
+  } else {
+    newObj[key] = val;
+  }
+  return newObj;
+}
+console.log(deepCopy({ a: '1', b: { a: 2} }));
+a.b.a = 123;
+console.log(b.b.a !== 123);
+
 
 
 
